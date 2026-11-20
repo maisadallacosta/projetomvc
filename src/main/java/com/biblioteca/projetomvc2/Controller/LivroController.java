@@ -3,23 +3,36 @@ package com.biblioteca.projetomvc2.Controller;
 import org.springframework.ui.Model;
 import com.biblioteca.projetomvc2.Model.Livro;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-@RequestMapping("/livro")
+@RequestMapping("/livros")
 public class LivroController {
 
+    private List<Livro> livros = new ArrayList<>();
+
+    @GetMapping("/inicio")
+    public String inicio() { return "livros/inicio";}
+
     @GetMapping
-    public String exibirLivros(Model model) {
+    public String listar(Model model){
+        model.addAttribute("livros", livros);
+        return "livros/lista";
+    }
 
-        Livro livro = new Livro();
-        livro.setTitulo("Livro 1");
-        livro.setAutor("Autor");
-        livro.setIsbn("4545555455");
+    public String cadastrar (@ModelAttribute Livro livro){
+        livros.add(livro);
+        return "redirectt:/livros";
+    }
 
-        model.addAttribute("livro", livro);
-
-        return "livro";
+    @DeleteMapping("/excluir/{indice}")
+    public String excluir(@PathVariable int indice){
+        if (indice >= 0 && indice < livros.size()){
+            livros.remove(indice);
+        }
+        return "redirect:/livros";
     }
 }
