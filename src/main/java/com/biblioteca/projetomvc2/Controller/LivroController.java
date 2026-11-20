@@ -25,7 +25,7 @@ public class LivroController {
 
     public String cadastrar (@ModelAttribute Livro livro){
         livros.add(livro);
-        return "redirectt:/livros";
+        return "redirect:/livros";
     }
 
     @DeleteMapping("/excluir/{indice}")
