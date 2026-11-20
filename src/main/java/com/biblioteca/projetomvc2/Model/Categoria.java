@@ -1,9 +1,11 @@
 package com.biblioteca.projetomvc2.Model;
 
-public class Categoria {
+import java.util.ArrayList;
 
+public class Categoria {
     private String nome;
-    private String descricao;
+    private ArrayList<Livro> livrosGenero = new ArrayList<>();
+    private ArrayList<Livro> livrosArea = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -13,11 +15,19 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public ArrayList<Livro> getLivrosGenero() {
+        return livrosGenero;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setLivrosGenero(ArrayList<Livro> livrosGenero) {
+        this.livrosGenero = livrosGenero;
+    }
+
+    public ArrayList<Livro> getLivrosArea() {
+        return livrosArea;
+    }
+
+    public void setLivrosArea(ArrayList<Livro> livrosArea) {
+        this.livrosArea = livrosArea;
     }
 }

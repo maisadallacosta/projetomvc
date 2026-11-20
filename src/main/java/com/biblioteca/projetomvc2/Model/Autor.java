@@ -1,10 +1,18 @@
 package com.biblioteca.projetomvc2.Model;
 
-public class Autor {
-
+public class Autor{
     private String nome;
     private String nacionalidade;
-    private String dataNascimento;
+    private String obrasPublicadas;
+
+    public Autor(){
+    }
+
+    public Autor(String nome, String nacionalidade, String obrasPublicadas){
+        this.nome = nome;
+        this.nacionalidade = nacionalidade;
+        this.obrasPublicadas = obrasPublicadas;
+    }
 
     public String getNome() {
         return nome;
@@ -22,11 +30,11 @@ public class Autor {
         this.nacionalidade = nacionalidade;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
+    public String getObrasPublicadas() {
+        return obrasPublicadas;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setObrasPublicadas(String obrasPublicadas) {
+        this.obrasPublicadas = obrasPublicadas;
     }
 }

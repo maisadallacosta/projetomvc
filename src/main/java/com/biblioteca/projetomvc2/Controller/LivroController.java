@@ -35,4 +35,12 @@ public class LivroController {
         }
         return "redirect:/livros";
     }
+
+    @PostMapping("/editar/{indice}")
+    public String atualizar(@PathVariable("indice") int indice, Livro livro) {
+        if (indice >= 0 && indice < livros.size()) {
+            livros.set(indice, livro);
+        }
+        return "redirect:/livros";
+    }
 }

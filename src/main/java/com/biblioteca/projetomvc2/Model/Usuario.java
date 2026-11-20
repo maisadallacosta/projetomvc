@@ -6,6 +6,16 @@ public class Usuario {
     private String cpf;
     private String email;
     private String telefone;
+    private String senha;
+
+    public Usuario(){
+    }
+
+    public Usuario(String nome, String email, String senha, String dataNascimento) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public String getNome() {
         return nome;
@@ -37,5 +47,13 @@ public class Usuario {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
